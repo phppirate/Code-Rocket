@@ -30,6 +30,7 @@ window.onload = function () {
         tabSize: 4,
         indentUnit: 4,
         cursorHeight: .85,
+        profile: 'xhtml',
         //highlightSelectionMatches: {showToken: /\w/}
 
         foldGutter: true,
@@ -42,6 +43,7 @@ window.onload = function () {
         height: '400px',
         keyMap: 'sublime',
         scrollbarStyle: "simple",
+        profile: 'css',
         extraKeys: {
             "Ctrl-Space": "autocomplete",
             "Ctrl-Alt-F": function (cm) {
@@ -65,6 +67,7 @@ window.onload = function () {
         height: '400px',
         keyMap: 'sublime',
         scrollbarStyle: "simple",
+        profile: 'javascript',
         extraKeys: {
             "Ctrl-Space": "autocomplete",
             "Ctrl-Alt-F": function (cm) {
@@ -82,6 +85,9 @@ window.onload = function () {
         gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
     });
 
+    emmetCodeMirror(htmlEditor);
+    emmetCodeMirror(cssEditor);
+    emmetCodeMirror(javaScriptEditor);
 
 
     updatePreview();
