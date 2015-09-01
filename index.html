@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Rocket</title>
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/CodeMirror/lib/codemirror.css"/>
+
+    <link rel="stylesheet" href="assets/CodeMirror/theme/ambiance.css"/>
+    <link rel="stylesheet" href="assets/CodeMirror/theme/monokai.css"/>
+    <link rel="stylesheet" href="assets/CodeMirror/addon/scroll/simplescrollbars.css"/>
+    <link rel="stylesheet" href="assets/CodeMirror/addon/hint/show-hint.css"/>
+    <link rel="stylesheet" href="assets/CodeMirror/addon/display/fullscreen.css"/>
+    <link rel="stylesheet" href="assets/CodeMirror/addon/dialog/dialog.css">
+    <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="assets/CodeMirror/addon/fold/foldgutter.css" />
+
+    <link rel="stylesheet" href="assets/colorpicker/css/colorpicker.css"/>
+
+
+    <link rel="stylesheet" href="assets/css/main.css"/>
+
+    <script src="assets/CodeMirror/lib/codemirror.js"></script>
+
+    <!-- Modes -->
+    <script src="assets/CodeMirror/mode/xml/xml.js"></script>
+    <script src="assets/CodeMirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="assets/CodeMirror/mode/javascript/javascript.js"></script>
+    <script src="assets/CodeMirror/mode/css/css.js"></script>
+    <!-- Add Ons -->
+    <script src="assets/CodeMirror/addon/edit/closetag.js"></script>
+    <script src="assets/CodeMirror/addon/edit/closebrackets.js"></script>
+    <script src="assets/CodeMirror/addon/search/searchcursor.js"></script>
+    <script src="assets/CodeMirror/addon/search/match-highlighter.js"></script>
+    <script src="assets/CodeMirror/addon/search/search.js"></script>
+    <script src="assets/CodeMirror/addon/dialog/dialog.js"></script>
+    <script src="assets/CodeMirror/addon/fold/foldcode.js"></script>
+    <script src="assets/CodeMirror/addon/fold/foldgutter.js"></script>
+    <script src="assets/CodeMirror/addon/fold/brace-fold.js"></script>
+    <script src="assets/CodeMirror/addon/fold/xml-fold.js"></script>
+    <script src="assets/CodeMirror/addon/fold/markdown-fold.js"></script>
+    <script src="assets/CodeMirror/addon/fold/comment-fold.js"></script>
+
+
+
+    <!-- Hinting -->
+    <script src="assets/CodeMirror/addon/hint/show-hint.js"></script>
+    <script src="assets/CodeMirror/addon/hint/xml-hint.js"></script>
+    <script src="assets/CodeMirror/addon/hint/html-hint.js"></script>
+    <script src="assets/CodeMirror/addon/hint/css-hint.js"></script>
+    <script src="assets/CodeMirror/addon/hint/javascript-hint.js"></script>
+
+    <!-- Scroll Bars -->
+    <script src="assets/CodeMirror/addon/scroll/simplescrollbars.js"></script>
+    <!-- SUBLIME KEYMAP -->
+    <script src="assets/CodeMirror/keymap/sublime.js"></script>
+    <!--// FULL SCREEN-->
+    <script src="assets/CodeMirror/addon/display/fullscreen.js"></script>
+
+
+</head>
+<body>
+
+<!--Editors-->
+
+<div id="html" class="codewindow ui-resizable">
+    <div class="menubar html-menubar">
+        <div class="title">html</div>
+        <div class="actions">
+            <a><span class="fa fa-save"></span></a>
+            <a class="updatePreview"><span class="fa fa-refresh"></span></a>
+            <a class="divider">&nbsp;</a>
+            <a href="#settings" class="trigger-dialog"><span class="fa fa-gears"></span></a>
+            <a href="#download" class="trigger-dialog"><span class="fa fa-download"></span></a>
+        </div>
+    </div>
+
+    <textarea id="htmlCode" class="code-editor"><!-- HTML --></textarea>
+</div>
+<div id="css" class="codewindow">
+    <div class="menubar css-menubar">
+        <div class="title">Css</div>
+        <div class="actions">
+            <a href="#AdditionalCss" class="trigger-dialog"><span class="fa fa-link"></span></a>
+            <!--<a><span class="fa fa-save"></span></a>-->
+            <!--<a class="updatePreview"><span class="fa fa-refresh"></span></a>-->
+        </div>
+    </div>
+
+    <input type="text" class="color" id="colorPicker"/>
+
+        <ul class="context-menu">
+            <li data-target="#colorPicker">Color Picker</li>
+            <li>Save</li>
+        </ul>
+
+        <textarea id="cssCode" class="code-editor">/* CSS */</textarea>
+</div>
+<div id="javascript" class="codewindow">
+    <div class="menubar js-menubar">
+        <div class="title">JavaScript</div>
+        <div class="actions">
+            <a href="#AdditionalJs" class="trigger-dialog"><span class="fa fa-link"></span></a>
+
+            <!--<a><span class="fa fa-save"></span></a>-->
+            <!--<a class="updatePreview"><span class="fa fa-refresh"></span></a>-->
+        </div>
+    </div>
+
+    <textarea id="jsCode" class="code-editor">// JavaScript with jQuery preloaded</textarea>
+</div>
+<iframe class="preview ui-resizable" style="background: #fff" frameborder="0" id="preview">
+
+
+
+
+</iframe>
+
+<div class="overlay">&nbsp;</div>
+<div class="dialog" id="download">
+    <div class="dialog-title">Download Html Page <a href="#download" class="close">&times;</a></div>
+    <textarea id="page-content" style="height: 400px" class="textarea-fullsize">Some Quick Content</textarea>
+    <div class="dialog-footer clearfix">
+        <div class="pull-right"><a href="#download" class="rocket-btn close-btn">Close</a></div>
+    </div>
+</div>
+
+<div class="dialog" id="settings">
+    <div class="dialog-title">Code Rocket Settings <a href="#settings" class="close">&times;</a></div>
+    <div class="dialog-content">
+
+        <a href="#" class="rocket-btn reset-code-rocket">Reset Code Rocket</a>
+        <a href="#" class="rocket-btn clear-cache">Clear Cache</a>
+
+    </div>
+    <div class="dialog-footer clearfix">
+        <div class="pull-right"><a href="#settings" class="rocket-btn close-btn">Save</a></div>
+    </div>
+</div>
+
+<div class="dialog" id="AdditionalCss">
+    <div class="dialog-title">Linked CSS <a href="#AdditionalCss" class="close">&times;</a></div>
+    <textarea id="addCss" style="height: 400px" class="textarea-fullsize" placeholder='<link href="Path/To/Css" type="text/css"/>'></textarea>
+    <div class="dialog-footer clearfix">
+        <div class="pull-right"><a href="#AdditionalCss" class="rocket-btn close-btn">Close</a></div>
+    </div>
+</div>
+
+<div class="dialog" id="AdditionalJs">
+    <div class="dialog-title">Linked JavaScripts <a href="#AdditionalJs" class="close">&times;</a></div>
+    <textarea id="addJs" style="height: 400px" class="textarea-fullsize" placeholder='<script src="path/to/.js"></script>'></textarea>
+    <div class="dialog-content">
+
+        Will be loaded at the end of the document. Right before the &lt;/body&gt;.
+
+    </div>
+    <div class="dialog-footer clearfix">
+        <div class="pull-right"><a href="#AdditionalJs" class="rocket-btn close-btn">Save</a></div>
+    </div>
+</div>
+
+
+<script src="assets/js/setup.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+<!-- Color Picker -->
+<script type="text/javascript" src="assets/colorpicker/js/colorpicker.js" ></script>
+<!-- Custom Script -->
+<script src="assets/js/main.js"></script>
+
+<script>
+
+
+
+
+</script>
+</body>
+</html>
