@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+	<meta charset='UTF-8' />
+	
+	<title>Drawing Table</title>
+	
+	<link rel='stylesheet' href='css/colorpicker.css' />
+	<link rel='stylesheet' href='css/style.css' />
+	
+	<script src='http://10.0.1.4/code/jquery/jquery.min.js'></script>
+	<script src='js/colorpicker.js'></script>
+	<script src='js/drawingtable.js'></script>
+</head>
+
+<body>
+
+	<div id="page-wrap">
+	
+		<h1>Drawing Table</h1>
+		<p>Inspiration: a tool for creating pixel-art Emails (require no images) <a href="http://stylecampaign.com/blog/?p=84">like this</a>.</p>
+		
+		<div id="controls">
+		
+			<fieldset id="grid-size-wrap">
+				<legend>Grid Size</legend>
+				
+				<button id="clear">Clear the Design</button>
+				
+				<select id="gridSize">
+					<option value="10,10">10 x 10</option>
+					<option value="20,20" selected>20 x 20</option>
+					<option value="30,30">30 x 30</option>
+				</select>
+				<br />
+				Changing size clears the design
+			</fieldset>
+		
+			<fieldset id="color-selector">
+				<legend>Color Picker</legend>
+				<div class="color red selected" data-color="red"><input type="text"></div>
+				<div class="color green" data-color="green"><input type="text"></div>
+				<div class="color blue" data-color="blue"><input type="text"></div>
+				<div class="color eraser" data-color="eraser"></div>
+				<p>Hold [Option] key for temporary erase mode</p>
+			</fieldset>
+			
+			<fieldset id="tracing-wrap">
+				<legend>Place Tracing Image</legend>
+				<form id="tracing-image-form">
+					<label>URL to image:</label>
+					<input type="text" id="fileLocation" value="http://10.0.1.4/Podlogger/uploads/podvidz/3/53786742698504792image.jpg">
+					<input type="submit" id="fileSubmit" value="Place Image">
+				</form>
+				<button id="toggle-tracing-mode">Toggle Tracing Mode Off</button>
+			</fieldset>
+			
+			<fieldset id="html-wrap">
+				<legend>Get the HTML</legend>
+				
+				<textarea id="the-html"></textarea>
+				
+				<button id="get-html-button">Get HTML of Current Design</button>
+			</fieldset>
+			
+		</div>
+	
+		<div id="table-wrap">
+			<table id="drawing-table">
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	
+	</div>
+	
+</body>
+
+</html>
